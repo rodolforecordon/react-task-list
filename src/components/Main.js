@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 
-// Form
-import { FaPlus } from 'react-icons/fa';
-
-// Tarefas
-import { FaPen, FaTrash } from 'react-icons/fa';
+import Form from './Form';
+import TaskList from './TaskList';
 
 import './Main.css';
 import { randomId } from '../modules/randomId';
@@ -18,20 +15,18 @@ export default class Main extends Component {
   };
 
   handleSubmit = (e) => {
+    console.log(this.state.tasks);
     e.preventDefault();
     const { tasks, editMode, editId } = this.state;
     let { newTask } = this.state;
-
     if (!editMode) {
       newTask = {
         id: randomId(20),
         title: newTask.trim(),
       };
 
-      tasks.push(newTask);
-
       this.setState({
-        tasks: tasks,
+        tasks: [...tasks, newTask],
         newTask: '',
       });
     } else {
@@ -45,7 +40,7 @@ export default class Main extends Component {
 
       this.setState({
         newTask: '',
-        tasks: newTasks,
+        tasks: [...newTasks],
         editMode: false,
         editId: '',
       });
@@ -80,6 +75,20 @@ export default class Main extends Component {
     });
   };
 
+  componentDidMount () {
+    const tasks = JSON.parse(localStorage.getItem('tasks'));
+
+    this.setState({ tasks });
+  }
+
+  componentDidUpdate (prevProps, prevState) {
+    const { tasks } = this.state;
+
+    if (tasks === prevState.tasks) return;
+
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }
+
   render() {
     const { newTask, tasks } = this.state;
 
@@ -87,34 +96,18 @@ export default class Main extends Component {
       <div className="main">
         <h1>Tasks List</h1>
 
-        <form onSubmit={this.handleSubmit} action="#" className="form">
-          <input
-            type="text"
-            onChange={this.handleInputChange}
-            value={newTask}
-          />
-          <button type="submit">
-            <FaPlus />
-          </button>
-        </form>
+        <Form
+          handleSubmit={this.handleSubmit}
+          handleInputChange={this.handleInputChange}
+          newTask={newTask}
+        />
 
-        <ul className="tarefas">
-          {tasks.map(task => (
-            <li key={task.id}>
-              {task.title}
-              <span>
-                <FaPen
-                  onClick={(e) => this.handleEdit(e, task.id)}
-                  className="edit"
-                />
-                <FaTrash
-                  onClick={(e) => this.handleDelete(e, task.id)}
-                  className="delete"
-                />
-              </span>
-            </li>
-          ))}
-        </ul>
+        <TaskList
+          handleEdit={this.handleEdit}
+          handleDelete={this.handleDelete}
+          tasks={tasks}
+        />
+
       </div>
     );
   }

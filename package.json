@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "firebase": "^9.6.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
@@ -41,6 +42,7 @@
     "eslint": "^8.9.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-xo": "^0.40.0",
-    "eslint-plugin-react": "^7.28.0"
+    "eslint-plugin-react": "^7.28.0",
+    "prop-types": "^15.8.1"
   }
 }
