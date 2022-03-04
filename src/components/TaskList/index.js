@@ -7,7 +7,7 @@ import './TaskList.css';
 export default function TaskList({ handleEdit, handleDelete, tasks }) {
   return (
     <ul className="tarefas">
-      {tasks.map(task => (
+      {tasks?.map(task => (
         <li key={task.id}>
           {task.title}
           <span>

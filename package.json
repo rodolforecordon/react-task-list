@@ -1,4 +1,5 @@
 {
+  "homepage": "https://rodolforecordon.github.io/react-task-list/",
   "name": "react-todo",
   "version": "0.1.0",
   "private": true,
@@ -14,6 +15,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -43,6 +46,7 @@
     "eslint-config-google": "^0.14.0",
     "eslint-config-xo": "^0.40.0",
     "eslint-plugin-react": "^7.28.0",
+    "gh-pages": "^3.2.3",
     "prop-types": "^15.8.1"
   }
 }
