@@ -76,7 +76,7 @@ export default class Main extends Component {
   };
 
   componentDidMount () {
-    const tasks = JSON.parse(localStorage.getItem('tasks'));
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
     this.setState({ tasks });
   }
