@@ -15,7 +15,6 @@ export default class Main extends Component {
   };
 
   handleSubmit = (e) => {
-    console.log(this.state.tasks);
     e.preventDefault();
     const { tasks, editMode, editId } = this.state;
     let { newTask } = this.state;
@@ -64,6 +63,8 @@ export default class Main extends Component {
       editMode: true,
       editId: id,
     });
+
+    document.querySelector('input').focus();
   };
 
   handleDelete = (e, id) => {
