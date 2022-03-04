@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/react-task-list/static/css/main.984b67db.css",
-    "main.js": "/react-task-list/static/js/main.8ca320cf.js",
+    "main.js": "/react-task-list/static/js/main.e44210c5.js",
     "index.html": "/react-task-list/index.html",
     "main.984b67db.css.map": "/react-task-list/static/css/main.984b67db.css.map",
-    "main.8ca320cf.js.map": "/react-task-list/static/js/main.8ca320cf.js.map"
+    "main.e44210c5.js.map": "/react-task-list/static/js/main.e44210c5.js.map"
   },
   "entrypoints": [
     "static/css/main.984b67db.css",
-    "static/js/main.8ca320cf.js"
+    "static/js/main.e44210c5.js"
   ]
 }
